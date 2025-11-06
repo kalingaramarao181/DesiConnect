@@ -1,0 +1,82 @@
+/* Container Section */
+.category-section {
+  width: 100%;
+  text-align: center;
+  padding: 20px;
+  background-color: #fdfdfd;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Section Heading */
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #222;
+}
+
+/* Cards Container - single row, scrollable */
+.category-container {
+  display: flex;
+  flex-wrap: nowrap; /* ensures one row only */
+  justify-content: flex-start;
+  gap: 15px; /* space between cards */
+  overflow-x: auto; /* horizontal scroll if needed */
+  padding-bottom: 10px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on mobile */
+}
+.category-container::-webkit-scrollbar {
+  height: 6px;
+}
+.category-container::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 3px;
+}
+/* Individual Cards */
+.category-card {
+  flex-shrink: 0; /* prevents shrinking */
+  width: 140px;
+  height: 130px;
+  border-radius: 12px;
+  padding: 15px 10px;
+  color: #000; /* text color black */
+  background-color: #fff; /* white background */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 14px rgba(0,0,0,0.3);
+}
+
+/* Card Heading */
+.card-heading {
+  font-size: 1rem;
+  margin: 8px 0 5px 0;
+  font-weight: 600;
+  color: black;
+}
+
+/* Card Text */
+.card-paragraph {
+  font-size: 0.8rem;
+  color: black;
+}
+
+/* Icon - colored circle with white icon inside */
+.icon {
+  font-size: 1.5rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px auto;
+  color: white; /* icon color white */
+}
+
+/* Remove previous bg-* classes since card background is white */

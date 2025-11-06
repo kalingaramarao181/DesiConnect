@@ -1,0 +1,51 @@
+.usedcars-hero-section {
+  background-image: url("/public/images/backgroundimage.png");
+  background-size: cover;
+  background-position: center;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  animation: slideDownHero 1.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+@keyframes slideDownHero {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.usedcars-hero-content {
+  color: #181717;
+  width: 500px;
+  animation: fadeUpHero 1.3s ease-in-out;
+}
+
+@keyframes fadeUpHero {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.usedcars-hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+}
+
+.usedcars-hero-content p {
+  font-size: 1.1rem;
+  opacity: 0.8;
+}

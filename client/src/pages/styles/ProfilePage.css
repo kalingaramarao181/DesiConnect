@@ -1,0 +1,168 @@
+/* ===== Container Styling ===== */
+.profile-main-container {
+  max-width: 900px;
+  margin: 90px auto;
+  background: #ffffff;
+  border-radius: 18px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+  padding: 40px 50px;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+
+/* ===== Header ===== */
+.profile-header-section {
+  text-align: center;
+  border-bottom: 1px solid #f2f2f2;
+  padding-bottom: 25px;
+  animation: slideInFromTop 0.6s ease;
+}
+
+.profile-user-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #ff6600;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.profile-user-avatar:hover {
+  transform: scale(1.08);
+}
+
+.profile-user-name {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.profile-user-email {
+  color: #888;
+  font-size: 1rem;
+  margin-bottom: 15px;
+}
+
+.profile-edit-btn {
+  background: #ff6600;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.profile-edit-btn:hover {
+  background: #e65500;
+  transform: scale(1.05);
+}
+
+/* ===== Edit Form ===== */
+.profile-edit-form {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 25px;
+  background: #fafafa;
+  border-radius: 12px;
+  animation: fadeIn 0.8s ease;
+}
+
+.profile-input-box,
+.profile-textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.profile-input-box:focus,
+.profile-textarea:focus {
+  border-color: #ff6600;
+  outline: none;
+}
+
+.profile-save-btn {
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  align-self: flex-end;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-save-btn:hover {
+  background: #e65500;
+}
+
+/* ===== My Ads Section ===== */
+.profile-ads-section {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.profile-show-ads-btn {
+  background: #ff6600;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.profile-show-ads-btn:hover {
+  background: #e65500;
+}
+
+.profile-ads-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.6s ease, opacity 0.6s ease;
+  opacity: 0;
+}
+
+.ads-visible {
+  max-height: 800px;
+  opacity: 1;
+  margin-top: 25px;
+  animation: fadeIn 0.8s ease;
+}
+
+.ads-hidden {
+  max-height: 0;
+  opacity: 0;
+}
+
+.profile-no-ads-msg {
+  color: #666;
+  margin-top: 25px;
+  font-size: 1.1rem;
+}
+
+/* ===== Simple Animations ===== */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInFromTop {
+  from { opacity: 0; transform: translateY(-25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in-section {
+  animation: fadeIn 0.6s ease;
+}

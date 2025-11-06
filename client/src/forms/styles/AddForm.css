@@ -1,0 +1,335 @@
+
+ 
+.cf-form-wrapper {
+  overflow-y: scroll;
+  height: 70vh;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.4s ease;
+  scrollbar-width: none;      
+  -ms-overflow-style: none; 
+}
+
+.cf-form-wrapper::-webkit-scrollbar {
+  display: none;
+}
+ 
+ 
+/* ===== TITLE ===== */
+.cf-form-title {
+  text-align: center;
+  color: #ff7a00;
+  font-weight: 700;
+  font-size: 1.8rem;
+  margin-bottom: 25px;
+  letter-spacing: 0.5px;
+}
+ 
+/* ===== INPUT GROUP ===== */
+.cf-input-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+ 
+.cf-input,
+.cf-textarea,
+.cf-select {
+  width: 100%;
+  padding: 10px 5px;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  font-size: 0.95rem;
+  background: transparent;
+  outline: none;
+  transition: all 0.3s ease;
+  color: #333;
+}
+ 
+.cf-input:focus,
+/* .cf-textarea:focus, */
+.cf-select:focus {
+  border-color: #ff8c00;
+}
+ 
+.cf-label {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+  font-size: 0.9rem;
+  color: rgb(0, 0, 0);
+  pointer-events: none;
+  transition: 0.3s ease all;
+}
+ 
+.cf-input:focus + .cf-label,
+.cf-input:not(:placeholder-shown) + .cf-label,
+.cf-textarea:focus + .cf-label,
+.cf-textarea:not(:placeholder-shown) + .cf-label {
+  top: -10px;
+  left: 0;
+  color: #ff7a00;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+ 
+/* ===== UNDERLINE ANIMATION ===== */
+.cf-underline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  /* background: linear-gradient(90deg, #ff7a00, #ffa94d); */
+  transition: 0.3s ease all;
+}
+ 
+.cf-input:focus ~ .cf-underline,
+.cf-textarea:focus ~ .cf-underline,
+.cf-select:focus ~ .cf-underline {
+  width: 100%;
+}
+ 
+/* ===== TEXTAREA ===== */
+.cf-textarea {
+  resize: vertical;
+  min-height: 90px;
+}
+ 
+/* ===== SELECT ===== */
+.cf-select {
+  appearance: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+ 
+/* ===== CATEGORY HINT ===== */
+.cf-category-hint {
+  font-size: 0.9rem;
+  color: #ff7a00;
+  margin: 8px 0 15px 5px;
+  font-weight: 500;
+  animation: fadeIn 0.4s ease-in;
+}
+ 
+/* ===== CATEGORY SECTION ===== */
+.cf-category-section {
+  padding: 10px 0;
+  border-left: 3px solid #ff8c00;
+  margin-bottom: 20px;
+  padding-left: 10px;
+  animation: fadeIn 0.5s ease-in;
+}
+ 
+/* ===== UPLOAD CONTAINER ===== */
+.cf-upload-container {
+  text-align: center;
+  padding: 25px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(255, 140, 0, 0.15);
+  animation: fadeIn 0.5s ease-in-out;
+  margin: 20px 0;
+}
+ 
+.cf-upload-title {
+  color: #ff8c00;
+  font-size: 20px;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+ 
+/* ===== DROP ZONE ===== */
+.cf-dropzone {
+  position: relative;
+  border: 2px dashed #ff8c00;
+  border-radius: 12px;
+  padding: 20px ;
+  background: #ffffff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  /* width: 150px; */
+  /* height: 100px; */
+}
+ 
+.cf-dropzone:hover {
+  background: #ffffff;
+  transform: scale(1.02);
+}
+ 
+.cf-drop-text {
+  font-size: 14px;
+  color: #555;
+}
+ 
+.cf-drop-text span {
+  color: #ff8c00;
+  font-weight: 600;
+}
+ 
+/* ===== HIDE DEFAULT FILE INPUT ===== */
+.cf-file-input {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+ 
+/* ===== IMAGE PREVIEW GRID ===== */
+.cf-image-preview {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  animation: fadeIn 0.4s ease-in;
+}
+ 
+.cf-preview-box {
+  position: relative;
+  display: inline-block;
+}
+ 
+.cf-preview-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 2px solid #ff8c00;
+  box-shadow: 0 2px 10px rgba(255, 122, 0, 0.25);
+  transition: all 0.3s ease;
+}
+ 
+.cf-preview-img:hover {
+  transform: scale(1.05);
+}
+ 
+/* ===== REMOVE BUTTON ===== */
+.cf-remove-btn {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #ff8c00;
+  border: none;
+  color: #fff;
+  border-radius: 50%;
+  font-size: 12px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  line-height: 18px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+ 
+.cf-remove-btn:hover {
+  background: #e67e00;
+}
+ 
+/* ===== SUBMIT BUTTON ===== */
+.cf-submit-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #ff7a00, #ff8c00);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  margin-top: 15px;
+}
+ 
+.cf-submit-btn:hover {
+  background: linear-gradient(90deg, #e66a00, #ff8c00);
+  transform: translateY(-2px);
+  box-shadow: 0 3px 10px rgba(255, 122, 0, 0.3);
+}
+ 
+/* ===== PAGE BG (optional, single page view) ===== */
+/* body {
+  margin: 0;
+  background: linear-gradient(135deg, #fff8f0, #fff4e5);
+  height: 100vh;
+  overflow-y: auto;
+} */
+
+/* Map Modal */
+.cf-map-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.cf-map-box {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.cf-map-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.cf-current-btn,
+.cf-close-map-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  background-color: #ff7a00;
+  transition: 0.3s;
+}
+
+.cf-current-btn:hover,
+.cf-close-map-btn:hover {
+  background-color: #e56c00;
+}
+
+.cf-location-btn {
+  padding: 10px 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #ff7a00;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cf-location-btn:hover {
+  background-color: #e56c00;
+}
+
+.cf-location-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #333;
+}
+ 
+/* ===== ANIMATION ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

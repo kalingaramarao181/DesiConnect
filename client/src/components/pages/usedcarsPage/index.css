@@ -1,0 +1,240 @@
+/* ===== General Page Styling ===== */
+.usedcars-page-wrapper {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+  margin-top: 50px;
+
+}
+
+/* ===== Hero Section ===== */
+.usedcars-hero-section {
+  background-image: url("/public/images/backgroundimage.png");
+  background-size: cover;
+  background-position: start;
+  height: 380px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+}
+
+.usedcars-hero-section::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* background: rgba(0, 0, 0, 0.45); */
+}
+
+.usedcars-hero-content {
+  /* position: relative; */
+  /* z-index: 2; */
+  color: #181717;
+  width: 500px;
+  margin-right: 680px;
+}
+
+.usedcars-hero-content h1 {
+  font-size: 2.4rem;
+  margin-bottom: 10px;
+  /* margin-right: 120px; */
+}
+
+.usedcars-hero-content p {
+  font-size: 1.1rem;
+}
+
+/* ===== Main Section ===== */
+.usedcars-main-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 60px;
+}
+
+/* ===== Filter Sidebar ===== */
+.usedcars-filter-section {
+  flex: 1;
+  background: #fff;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  max-width: 300px;
+  height: fit-content;
+}
+
+.usedcars-filter-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.usedcars-logo {
+  width: 80px;
+  margin-bottom: 10px;
+}
+
+.usedcars-buy-sell-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.usedcars-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.orange-btn {
+  background-color: #ff6600;
+  color: #fff;
+}
+
+.orange-btn:hover {
+  background-color: #e75b00;
+}
+
+.grey-btn {
+  background-color: #f3f3f3;
+  color: #333;
+}
+
+.grey-btn:hover {
+  background-color: #ddd;
+}
+
+.usedcars-filter-group {
+  margin-bottom: 20px;
+}
+
+.usedcars-filter-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.usedcars-select,
+.usedcars-range {
+  width: 100%;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.usedcars-range-values {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #555;
+  margin-top: 5px;
+}
+
+.usedcars-checkbox-group div {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 5px;
+}
+
+.usedcars-view-btn {
+  background-color: #ff6600;
+  color: white;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.usedcars-view-btn:hover {
+  background-color: #e75b00;
+}
+
+/* ===== Car Cards Section ===== */
+.usedcars-cards-section {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.usedcars-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+}
+
+.usedcars-card:hover {
+  transform: translateY(-6px);
+}
+
+.usedcars-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.usedcars-card-body {
+  padding: 15px;
+}
+
+.usedcars-card-body h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: #222;
+}
+
+.usedcars-card-body p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.usedcars-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.usedcars-price {
+  font-weight: 600;
+  color: #ff6600;
+}
+
+.usedcars-details-btn {
+  background-color: #f3f3f3;
+  border: none;
+  border-radius: 8px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.usedcars-details-btn:hover {
+  background-color: #ddd;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 900px) {
+  .usedcars-main-section {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .usedcars-cards-section {
+    grid-template-columns: 1fr;
+  }
+
+  .usedcars-filter-section {
+    max-width: 100%;
+  }
+}

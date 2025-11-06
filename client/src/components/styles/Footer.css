@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+
+.footer-main {
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Poppins", sans-serif;
+  padding: 0px 20px; 
+  display: flex;
+  flex-direction: row;
+  gap: 10px; 
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+  justify-content: space-around;
+  /* height: 60px; */
+}
+
+/* Common Section Styling */
+.footer-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 🔹 First Section */
+.footer-section-top {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* ↓ Reduced inner spacing */
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: row;
+  gap: 10px; /* ↓ Small gap between columns */
+}
+
+.footer-info {
+  flex: 1;
+  margin-bottom: 5px; /* ↓ Reduced margin */
+}
+
+.footer-legal {
+  flex: 1;
+  align-items: flex-end;
+  padding-bottom: 0px;
+  margin-top: 0px; 
+}
+
+.footer-link {
+  color: #000;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: #ff6600;
+}
+
+/* 🔹 Second Section */
+.footer-section-middle {
+  justify-content: space-between;
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  gap: 5px; /* ↓ Reduced gap between texts */
+}
+
+.footer-text {
+  color: #000;
+  line-height: 1.4; /* ↓ Tighter spacing */
+}
+
+.footer-texting {
+  padding-bottom: 5px; /* ↓ Less padding */
+}
+
+/* 🔹 Third Section */
+.footer-section-bottom {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-viewall {
+  color: #ff6600;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.footer-viewall:hover {
+  color: #ff6600;
+}
+
+.footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* ↓ Smaller gap */
+  margin-left: 8px;
+}
+
+.footer-icon {
+  color: #ff6600;
+  font-size: 18px; /* ↓ Slightly smaller */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.footer-icon:hover {
+  transform: scale(1.2);
+}

@@ -1,0 +1,215 @@
+.postads-container {
+  /* display: flex; */
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+}
+
+/* LEFT SECTION */
+.postads-left-section {
+  width: 99%;
+  background: url("/public/images/backgroundimage.png") center/cover no-repeat;
+  color: #080808;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 350px;
+}
+
+.postads-header {
+  /* background: rgba(255, 255, 255, 0.1); */
+  border-radius: 16px;
+  padding: 30px;
+}
+
+.postads-welcome {
+  font-size: 28px;
+  margin: 0;
+}
+
+.postads-location {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.postads-subtext {
+  color: rgb(255, 94, 0);
+  margin: 10px 0;
+}
+
+.postads-btn {
+  background: rgb(240, 111, 37);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* RIGHT SECTION */
+.postads-right-section {
+  width: 93%;
+  background-color: #f9fafc;
+  padding: 50px;
+}
+
+.postads-main-flex {
+  display: flex;
+  gap: 50px;
+}
+
+/* SIDEBAR */
+.postads-sidebar {
+  background: white;
+  border-radius: 12px;
+  width: 220px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 20px;
+}
+
+.postads-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #181616;
+  transition: 0.3s;
+}
+
+.postads-menu-item.active,
+.postads-menu-item:hover {
+  background: rgb(243, 100, 44);
+  color: white;
+}
+
+.postads-icon {
+  font-size: 18px;
+}
+
+/* CONTENT AREA */
+.postads-content-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* STATS SECTION */
+.postads-stats-flex {
+  display: flex;
+  gap: 20px;
+}
+
+.postads-stat-card {
+  background: white;
+  border-radius: 12px;
+  flex: 1;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  position: relative;
+  width: 180px;
+}
+
+.postads-stat-title {
+  font-size: 16px;
+  color: #333;
+}
+
+.postads-stat-value {
+  font-size: 28px;
+  font-weight: bold;
+  color: orange;
+}
+
+.postads-stat-icon {
+  color: orange;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  font-size: 22px;
+}
+
+/* ADS SECTION */
+.postads-ads-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.192);
+}
+
+.postads-ads-title {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.postads-ads-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.postads-ad-card {
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.24);
+}
+
+.postads-ad-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+.postads-ad-info {
+  padding: 10px;
+}
+
+.postads-ad-title {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.postads-ad-price {
+  color: orange;
+  font-weight: 600;
+}
+
+.postads-ad-views {
+  color: #777;
+  font-size: 13px;
+}
+
+.postads-ad-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.postads-edit-btn,
+.postads-delete-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.postads-edit-btn {
+  background: orange;
+  color: white;
+}
+
+.postads-delete-btn {
+  background: #ddd;
+  color: #333;
+}

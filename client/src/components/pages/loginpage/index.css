@@ -1,0 +1,146 @@
+/* Login Page Styles */
+body {
+  /* background: linear-gradient(135deg, #ff914d, #ff6a00); */
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-card {
+  background: #fff;
+  width: 380px;
+  padding: 2.5rem;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeIn 0.8s ease;
+}
+
+.login-title {
+  font-size: 2rem;
+  color: #ff6a00;
+  margin-bottom: 0.5rem;
+}
+
+.login-subtitle {
+  font-size: 0.95rem;
+  color: #777;
+  margin-bottom: 2rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  /* background: #f7f7f7; */
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  transition: 0.3s;
+}
+
+.input-group:focus-within {
+  /* background: #fff6f0; */
+  border: 1px solid #ff6a00;
+}
+
+.input-icon {
+  color: #ff6a00;
+  margin-right: 10px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  /* background: transparent; */
+  width: 100%;
+  font-size: 1rem;
+}
+
+.login-btn {
+  background: #ff6a00;
+  color: #fff;
+  width: 100%;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background: #e65c00;
+}
+
+.register-text {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.register-link {
+  color: #ff6a00;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.form-group {
+  text-align: left;
+  margin-bottom: 1.2rem;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: #080808;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  /* background: #f7f7f7; */
+  border-radius: 8px;
+  padding: 0.8rem;
+  transition: 0.3s;
+}
+
+.input-group:focus-within {
+  /* background: #fff6f0; */
+  border: 1px solid #ff6a00;
+}
+
+.input-icon {
+  color: #ff6a00;
+  margin-right: 10px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  background: transparent;
+  width: 100%;
+  font-size: 1rem;
+}

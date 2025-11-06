@@ -1,0 +1,278 @@
+/* ===== MAIN WRAPPER ===== */
+.carads-wrapper {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* ===== SECTION BASE STYLE ===== */
+.carads-section {
+  margin-bottom: 40px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* ===== HEADER SECTION ===== */
+.carads-header-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.carads-header-left {
+  flex: 1;
+}
+
+.carads-main-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+.carads-header-right {
+  flex: 0.5;
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.usedcars-hero-price {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #e67e22;
+}
+
+/* ===== CONDITION SECTION ===== */
+.carads-condition-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background: #fff7f1; */
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.carads-condition-left {
+  flex: 1;
+}
+
+.usedcars-condition-heading {
+  font-size: 1.5rem;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.usedcars-condition-text {
+  font-size: 1rem;
+  color: #777;
+}
+
+.carads-condition-right {
+  flex: 1;
+  text-align: right;
+}
+
+.usedcars-related-heading {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #e67e22;
+  margin-right: 40px;
+}
+
+/* ===== DETAILS SECTION ===== */
+.carads-details-section {
+  display: flex;
+  gap: 50px;
+}
+
+.carads-details-left {
+  flex: 0.5;
+  width: 300px;
+}
+
+.carads-details-right {
+  flex: 0.6;
+  width: 800px;
+  margin-left: 40px;
+}
+
+/* ==== LEFT SIDE DETAILS ==== */
+.carads-title {
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.carads-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 25px;
+}
+
+/* ==== SELLER INFO ==== */
+.carads-seller-info {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+.carads-seller-info h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: #e67e22;
+}
+
+.carads-seller-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 15px;
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.carads-seller-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.carads-seller-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.usedcars-seller-name {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.usedcars-seller-contact {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.carads-contact-btn {
+  background-color: #e67e22;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px;
+}
+
+.carads-contact-btn:hover {
+  background-color: #cf6a13;
+}
+
+/* ==== RELATED CARS GRID ==== */
+.carads-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+
+.carads-related-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carads-related-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.carads-related-img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.carads-related-body {
+  padding: 15px;
+}
+
+.carads-related-body h4 {
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.carads-related-body p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.carads-related-price {
+  font-weight: 600;
+  color: #e67e22;
+  font-size: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 992px) {
+  .carads-details-section {
+    flex-direction: column;
+  }
+  .carads-condition-section {
+    flex-direction: column;
+    text-align: center;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .carads-header-section {
+    flex-direction: column;
+  }
+
+  .carads-related-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .carads-header-right {
+    padding: 20px;
+  }
+
+  .usedcars-hero-price {
+    font-size: 2rem;
+  }
+}
+.carads-header-icons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.carads-icon {
+  font-size: 22px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  color: orange;
+}
+
+.carads-icon:hover {
+  color: #007bff;
+  transform: scale(1.1);
+}

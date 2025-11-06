@@ -1,0 +1,229 @@
+/* ========== ROOT LAYOUT ========== */
+.admindash-container {
+  display: flex;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fb;
+  color: #222;
+}
+
+/* ========== SIDEBAR ========== */
+.admindash-sidebar {
+  width: 240px;
+  background: linear-gradient(180deg, #1e1e2f, #2e2e45);
+  color: #fff;
+  padding: 25px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.1);
+}
+
+.admindash-sidebar-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.admindash-logo-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #ff6b35;
+  color: #fff;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.admindash-logo-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+/* ========== SIDEBAR MENU ========== */
+.admindash-sidebar-menu {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.admindash-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 14px 25px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  border-left: 4px solid transparent;
+}
+
+.admindash-menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.admindash-menu-item.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left: 4px solid #ff6b35;
+}
+
+.admindash-menu-icon {
+  font-size: 18px;
+}
+
+/* ========== MAIN CONTENT ========== */
+.admindash-main {
+  flex: 1;
+  padding: 40px 50px;
+  overflow-y: auto;
+}
+
+.admindash-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #222;
+}
+
+/* ========== STATS CARDS ========== */
+.admindash-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.admindash-stat-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.admindash-stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.admindash-stat-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.admindash-stat-info p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+.admindash-stat-info h3 {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ff6b35;
+  margin-top: 5px;
+}
+
+.admindash-stat-card.highlight .admindash-stat-info h3 {
+  color: #ff6b35;
+}
+
+.admindash-stat-card.warning .admindash-stat-info h3 {
+  color: #ff3b30;
+}
+
+/* ========== TABLE SECTION ========== */
+.admindash-section {
+  margin-bottom: 40px;
+}
+
+.admindash-section-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.admindash-section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admindash-search-box {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  background: #fff;
+  transition: 0.3s;
+}
+
+.admindash-search-box:focus {
+  border-color: #ff6b35;
+  box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.1);
+}
+
+/* ========== TABLE STYLES ========== */
+.admindash-table-container {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.admindash-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.admindash-table th,
+.admindash-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e6e6e6;
+  font-size: 14px;
+}
+
+.admindash-table th {
+  background: #fafafa;
+  font-weight: 600;
+  color: #333;
+}
+
+.admindash-table tbody tr:hover {
+  background: #f9f9f9;
+}
+
+.admindash-table-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 900px) {
+  .admindash-container {
+    flex-direction: column;
+  }
+
+  .admindash-sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 15px 0;
+  }
+
+  .admindash-main {
+    padding: 20px;
+  }
+}

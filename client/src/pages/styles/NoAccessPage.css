@@ -1,0 +1,135 @@
+/* ===== NO ACCESS PAGE STYLING ===== */
+
+.noaccess-wrapper {
+  height: 100vh;
+  width: 100%;
+  background: radial-gradient(circle at top, #ffe5cc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+}
+
+.noaccess-card {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  padding: 50px 60px;
+  text-align: center;
+  max-width: 480px;
+  animation: noaccess-fadeIn 0.7s ease-in-out;
+}
+
+/* Lock Icon Animation */
+.noaccess-icon-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.noaccess-lock {
+  position: relative;
+  width: 60px;
+  height: 70px;
+  background: #ff6600;
+  border-radius: 8px;
+  animation: noaccess-bounce 2s infinite;
+}
+
+.noaccess-lock-body {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  bottom: 0;
+  background: #ff6600;
+  border-radius: 8px;
+}
+
+.noaccess-lock-shackle {
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 35px;
+  border: 5px solid #ff6600;
+  border-bottom: none;
+  border-radius: 20px 20px 0 0;
+}
+
+/* Text Styles */
+.noaccess-title {
+  font-size: 2rem;
+  color: #ff6600;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.noaccess-message {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.noaccess-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.noaccess-btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.noaccess-btn-primary {
+  background: #ff6600;
+  color: #fff;
+}
+
+.noaccess-btn-primary:hover {
+  background: #e65500;
+  transform: scale(1.05);
+}
+
+.noaccess-btn-secondary {
+  background: transparent;
+  border: 2px solid #ff6600;
+  color: #ff6600;
+}
+
+.noaccess-btn-secondary:hover {
+  background: #ff6600;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes noaccess-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes noaccess-fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
