@@ -1,7 +1,7 @@
 import React from "react";
 import DynamicInputField from "../../components/DynamicInputField";
 
-const DynamicFieldSection = ({ loading, fields, handleChangeField, values }) => {
+const DynamicFieldSection = ({ loading, fields, handleChangeField, values, handleMapSelect, setLoadingLocation  }) => {
   if (loading) return <p>Loading fields...</p>;
   if (!fields?.length) return <p>No dynamic fields available.</p>;
 
@@ -14,7 +14,9 @@ const DynamicFieldSection = ({ loading, fields, handleChangeField, values }) => 
             key={field.id}
             field={field}
             handleChangeField={handleChangeField}
+            handleMapSelect={handleMapSelect}
             value={values[fieldKey] || ""}
+            setLoadingLocation={setLoadingLocation}
           />
         );
       })}

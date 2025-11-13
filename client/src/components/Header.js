@@ -36,6 +36,11 @@ const Header = () => {
     setOpenForm(false);
   };
 
+  const handleClickProfile = () => {
+    // Placeholder for profile click action
+    window.location.href = "/profile";
+  }
+
   // ✅ Handle Post Ad button click — login required
   const handlePostAd = () => {
     const token = Cookies.get("jwtToken");
@@ -102,7 +107,7 @@ const Header = () => {
                 {dropdownOpen && (
                   <div className="header-dropdown">
                     <p className="dropdown-username">{user.name}</p>
-                    <button className="dropdown-btn">Profile</button>
+                    <button onClick={handleClickProfile}  className="dropdown-btn">Profile</button>
                     <button className="dropdown-btn">My Ads</button>
                     <button
                       className="dropdown-btn logout"

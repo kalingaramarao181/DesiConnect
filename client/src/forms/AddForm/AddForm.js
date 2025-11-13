@@ -6,6 +6,8 @@ import { createAd } from "../../api/AdApi";
 import DynamicFieldSection from "./DynamicFieldSection";
 import ImageUploader from "./ImageUploader";
 import MapModal from "./MapModal";
+import { FaLocationDot } from "react-icons/fa6";
+import { getUserDataFromCookies } from "../../utils/cookiesData";
 
 const AddForm = () => {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -18,6 +20,9 @@ const AddForm = () => {
   const [mapVisible, setMapVisible] = useState(false);
   const [address, setAddress] = useState("");
   const [markerPosition, setMarkerPosition] = useState(null);
+  const [loadingLocation, setLoadingLocation] = useState(false);
+
+  const userData = getUserDataFromCookies();
 
   // 🔹 Load all categories
   useEffect(() => {
@@ -38,7 +43,6 @@ const AddForm = () => {
       setLoadingFields(true);
       try {
         const data = await getFieldsByCategory(selectedCategory);
-        console.log("📦 Fields from API:", data?.data);
         setCategoryFields(data?.data || []);
       } catch (err) {
         console.error("Error loading fields:", err);
@@ -71,6 +75,18 @@ const AddForm = () => {
     });
   };
 
+  const handleMapSelect = (fieldName, locationObj) => {
+    console.log("Location Obj1",locationObj);
+    
+    setFields((prev) => ({
+      ...prev,
+       [fieldName]: {
+      ...prev[fieldName],
+      ...locationObj,
+    },
+    }));
+  };
+
   // 🔹 Category select
   const handleCategoryChange = (e) => {
     setSelectedCategory(e.target.value);
@@ -83,7 +99,7 @@ const AddForm = () => {
     const finalData = {
       ...formData,
       fields: JSON.stringify(fields),
-      user_id: 1,
+      user_id: userData?.id || null,
       category_id: selectedCategory,
       latitude: markerPosition?.[0] || null,
       longitude: markerPosition?.[1] || null,
@@ -133,6 +149,8 @@ const AddForm = () => {
           fields={categoryFields}
           handleChangeField={handleChangeField}
           values={fields}
+          handleMapSelect={handleMapSelect}
+          setLoadingLocation={setLoadingLocation}
         />
 
         {/* STATIC FIELDS */}
@@ -166,9 +184,12 @@ const AddForm = () => {
             className="cf-location-btn"
             onClick={() => setMapVisible(true)}
           >
-            📍 Select Location
+            <FaLocationDot /> Select Location
+            {loadingLocation && (
+              <div className="cf-loader"></div> // 👈 Loader here
+            )}
           </button>
-          {address && <p className="cf-location-text">Selected: {address}</p>}
+          {address && <p className="cf-location-text"> {address}</p>}
         </div>
 
         {mapVisible && (
@@ -176,6 +197,7 @@ const AddForm = () => {
             setMapVisible={setMapVisible}
             setAddress={setAddress}
             setMarkerPosition={setMarkerPosition}
+            setLoadingLocation={setLoadingLocation}
           />
         )}
 

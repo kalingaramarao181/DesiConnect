@@ -4,8 +4,9 @@ import RegisterForm from "./RegisterForm";
 import PasswordUpdate from "./PasswordUpdateForm";
 import AddForm from "./AddForm/AddForm";
 import "./styles/index.css";
+import ChatPage from "../pages/ChatPage";
 
-const FormView = ({ openForm, setOpenForm, onLoginSuccess }) => {
+const FormView = ({ openForm, setOpenForm, onLoginSuccess, messageDetails }) => {
   const closePopup = () => setOpenForm(null);
 
   const renderForms = () => {
@@ -22,6 +23,8 @@ const FormView = ({ openForm, setOpenForm, onLoginSuccess }) => {
         return <PasswordUpdate closePopup={closePopup} setOpenForm={setOpenForm} />;
       case "add":
         return <AddForm closePopup={closePopup} setOpenForm={setOpenForm} />;
+      case "chat":
+        return <ChatPage messageDetails={messageDetails} />;
       default:
         return null;
     }

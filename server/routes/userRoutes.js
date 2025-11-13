@@ -11,7 +11,7 @@ const router = express.Router();
 // router.get('/user/:userId', getUserById);
 router.get('/users', protect, getAllUsers);
 router.get('/users/all', getUsers);
-router.get(`/user/:userId`, getUserById)
+router.get(`/user/:userId`, getUserById);
 
 
 

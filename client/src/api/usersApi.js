@@ -22,7 +22,7 @@ export const getUsers = async () => {
 
 export const getUserById = async (userId) => {
   try {
-    const response = await axiosInstance.get(`/users/${userId}`);
+    const response = await axiosInstance.get(`/user/${userId}`);
     return response.data;
   } catch (error) {
     console.error(`Error fetching user with ID ${userId}:`, error.message);

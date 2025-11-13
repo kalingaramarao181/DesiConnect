@@ -3,19 +3,25 @@ import { useParams } from "react-router-dom";
 import { getAdDetailsById } from "../api/AdApi";
 import { baseUrlImg } from "../Config/env";
 import "./styles/AdDetailsPage.css";
+import FormView from "../forms/FormView";
 
 const AdDetailsPage = () => {
-  const { adId } = useParams(); // ✅ Get ad ID from URL
+  const { adId } = useParams(); 
   const [ad, setAd] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [currentImage, setCurrentImage] = useState(0);
+  const [openForm, setOpenForm] = useState(false);
+  const [messageDetails, setMessageDetails] = useState({adId: adId, });
+ 
 
   useEffect(() => {
+
     const fetchAdDetails = async () => {
       try {
         setLoading(true);
-        const res = await getAdDetailsById(adId);
+        const res = await getAdDetailsById(adId)
+        setMessageDetails({...messageDetails, receiverId: res?.data?.user_id})
         if (res?.data) {
           setAd(res.data);
         } else {
@@ -28,13 +34,13 @@ const AdDetailsPage = () => {
         setLoading(false);
       }
     };
-
     fetchAdDetails();
   }, [adId]);
 
   if (loading) return <div className="loading">Loading ad details...</div>;
   if (error) return <div className="error">{error}</div>;
   if (!ad) return null;
+
 
   // ✅ Parse location and fields safely
   let locationData = {};
@@ -61,10 +67,6 @@ const AdDetailsPage = () => {
 
   const handleCall = () => {
     if (ad.contact_phone) window.location.href = `tel:${ad.contact_phone}`;
-  };
-
-  const handleMessage = () => {
-    if (ad.contact_email) window.location.href = `mailto:${ad.contact_email}`;
   };
 
   return (
@@ -178,7 +180,7 @@ const AdDetailsPage = () => {
             </button>
           )}
           {ad.contact_email && (
-            <button className="btn message" onClick={handleMessage}>
+            <button className="btn message" onClick={() => setOpenForm("chat")}>
               💬 Message
             </button>
           )}
@@ -197,6 +199,7 @@ const AdDetailsPage = () => {
           <p>Phone: {ad.contact_phone}</p>
         </div>
       </div>
+      <FormView setOpenForm={setOpenForm} openForm={openForm} messageDetails={messageDetails} />
     </div>
   );
 };

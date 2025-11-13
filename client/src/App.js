@@ -9,6 +9,7 @@ import AdDetailsPage from './pages/AdDetailsPage';
 import Secure from "./components/Secure"; // ✅ import Secure component
 import NoAccessPage from './pages/NoAccessPage';
 import ProfilePage from './pages/ProfilePage';
+import ChatPage from './pages/ChatPage';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         {/* ✅ Protected Route - Only logged-in users can access */}
         <Route element={<Secure />}>
           <Route path="/ads/:adId" element={<AdDetailsPage />} />
+          <Route path="/chat/:receiverId" element={<ChatPage />} />
         </Route>
         <Route path="*" element={<NoAccessPage />} />
 

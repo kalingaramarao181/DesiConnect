@@ -223,7 +223,6 @@ const AdModel = {
       limit = 10,
     } = filters;
 
-    console.log(type);
 
     let query = `
     SELECT 
@@ -337,6 +336,7 @@ const AdModel = {
   },
 
   getAdsByUser: async (user_id, filters = {}) => {
+    
     const {
       search_key,
       category,
@@ -351,7 +351,7 @@ const AdModel = {
     let query = `
     SELECT 
       a.*, 
-      u.name AS user_name, 
+      u.full_name AS user_name, 
       c.category_name AS category_name,
       GROUP_CONCAT(i.image_url) AS images
     FROM ads a

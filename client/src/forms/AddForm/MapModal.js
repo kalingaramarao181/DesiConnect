@@ -3,7 +3,7 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// Fix leaflet default marker icons
+// ✅ Fix default leaflet marker icons
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
   iconRetinaUrl:
@@ -14,27 +14,37 @@ L.Icon.Default.mergeOptions({
     "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png",
 });
 
-const MapModal = ({ setMapVisible, setAddress, setMarkerPosition }) => {
-  const [position, setPosition] = useState([20.5937, 78.9629]); // India default
+const MapModal = ({ setMapVisible, setAddress, setMarkerPosition, setLoadingLocation }) => {
+  const [position, setPosition] = useState([20.5937, 78.9629]); // Default: India
   const [marker, setMarker] = useState(null);
   const [loading, setLoading] = useState(false);
 
-  // 🔹 Reverse geocode selected coordinates
+  // ✅ Reverse Geocode via your backend proxy (to avoid CORS)
   const reverseGeocode = async (lat, lon) => {
     try {
-      const res = await fetch(
-        `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lon}& =json`
-      );
+      setLoadingLocation(true);
+      const res = await fetch(`http://localhost:5000/api/reverse-geocode?lat=${lat}&lon=${lon}`);
       const data = await res.json();
-      const addr = data.display_name || "Unknown location";
-      setAddress(addr);
+
+      if (data && data.display_name) {
+        setAddress(data.display_name);
+        console.log(data.display_name);
+        setMarkerPosition([lat, lon, data.display_name]);
+        
+      } else {
+        setMarkerPosition([lat, lon, "Unknown location"]);
+      }
+
       setMarkerPosition([lat, lon]);
     } catch (err) {
       console.error("Reverse geocode failed:", err);
+      setAddress("Unable to fetch address");
+    } finally {
+      setLoadingLocation(false);
     }
   };
 
-  // 🔹 Handle current location
+  // ✅ Handle “Use Current Location”
   const handleCurrentLocation = () => {
     if (!navigator.geolocation) {
       alert("Geolocation not supported in your browser.");
@@ -58,15 +68,13 @@ const MapModal = ({ setMapVisible, setAddress, setMarkerPosition }) => {
     );
   };
 
-  // 🔹 Map click to choose location
+  // ✅ Allow user to click on map to select location
   function LocationMarker() {
     useMapEvents({
       click(e) {
         const { lat, lng } = e.latlng;
-        if (lat && lng) {
-          setMarker([lat, lng]);
-          reverseGeocode(lat, lng);
-        }
+        setMarker([lat, lng]);
+        reverseGeocode(lat, lng);
       },
     });
     return marker ? <Marker position={marker} /> : null;
@@ -76,6 +84,7 @@ const MapModal = ({ setMapVisible, setAddress, setMarkerPosition }) => {
     <div className="cf-map-modal">
       <div className="cf-map-box">
         <h3>Select Location</h3>
+
         <div className="cf-map-buttons">
           <button
             onClick={handleCurrentLocation}
@@ -84,6 +93,7 @@ const MapModal = ({ setMapVisible, setAddress, setMarkerPosition }) => {
           >
             {loading ? "Fetching..." : "Use Current Location"}
           </button>
+
           <button
             onClick={() => setMapVisible(false)}
             className="cf-close-map-btn"
@@ -94,7 +104,7 @@ const MapModal = ({ setMapVisible, setAddress, setMarkerPosition }) => {
 
         <MapContainer
           center={position}
-          zoom={marker ? 13 : 5} 
+          zoom={marker ? 13 : 5}
           style={{
             height: "350px",
             width: "100%",
@@ -104,7 +114,7 @@ const MapModal = ({ setMapVisible, setAddress, setMarkerPosition }) => {
         >
           <TileLayer
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='© OpenStreetMap'
+            attribution="© OpenStreetMap"
           />
           <LocationMarker />
         </MapContainer>

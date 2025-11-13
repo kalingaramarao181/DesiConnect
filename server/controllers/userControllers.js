@@ -8,7 +8,7 @@ const getUserProfile = async (req, res) => {
     if (!user) return res.status(404).json({ message: "User not found" });
     res.status(200).json({
       id: user.id,
-      fullName: user.name,
+      fullName: user.full_name,
       email: user.email,
       role: user.role,
     });
@@ -18,15 +18,23 @@ const getUserProfile = async (req, res) => {
 };
 
 const getUserById = async (req, res) => {
+
   try {
+
     const user = await User.findById(req.params.userId);
+    
     if (!user) return res.status(404).json({ message: "User not found" });
+    
 
     res.status(200).json({
       id: user.id,
-      fullName: user.name,
+      fullName: user.full_name,
       phone: user.phone,
       email: user.email,
+      role: user.role,
+      profile_image: user.profile_image,
+      bio: user.bio,
+      location: user.location,
     });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });

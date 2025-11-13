@@ -102,7 +102,7 @@ export const getAdDetailsById = async (adId) => {
 export const getAdsByUser = async (user_id, filters = {}) => {
   try {
     const query = new URLSearchParams(filters).toString();
-    const res = await axiosInstance.get(`/ads/users/${user_id}?${query}`);
+    const res = await axiosInstance.get(`/adds/users/${user_id}?${query}`);
     return res.data;
   } catch (error) {
     console.error("Error fetching ads by user:", error);

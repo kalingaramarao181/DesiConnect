@@ -7,7 +7,6 @@ require("dotenv").config();
 
 const registerUser = async (req, res) => {
   const { name, email, password } = req.body;
-  console.log("Registering user:", name, email, password);
   
   try {
     const existingUser = await User.findByEmail(email);
@@ -19,7 +18,6 @@ const registerUser = async (req, res) => {
       .json({ message: "User registered successfully" });
   } catch (err) {
     res.status(500).json({ message: "Server error", error: err.message });
-    console.log(err);
   }
 };
 
@@ -57,13 +55,11 @@ const loginUser = async (req, res) => {
  
 const sendOtp = async (req, res) => {
   const { email } = req.body;
-  console.log("Sending OTP to:", email);
   
   
   if (!email) return res.status(400).json({ message: "Email is required" });
   try {
     const userData = await User.findByEmail(email);
-    console.log(userData);
     
       if (userData){
         return res.status(404).json({ message: "User already exists" });
@@ -72,7 +68,6 @@ const sendOtp = async (req, res) => {
     const token = jwt.sign({ email, otp }, process.env.JWT_SECRET, {
       expiresIn: "5m",
     });
-    console.log(email, "Password Reset OTP", `Your OTP is: ${otp}. It expires in 5 minutes.`);
     
 
     await sendEmail(email, "Password Reset OTP", `Your OTP is: ${otp}. It expires in 5 minutes.`);
@@ -100,7 +95,6 @@ const sendResetOtp = async (req, res) => {
     });
 
     await sendEmail(email, "Reset Password OTP", `Your OTP is: ${otp}. It expires in 5 minutes.`);
-    console.log("Reset OTP sent successfully", token);
 
     res.json({ message: "Reset OTP sent successfully", token });
   } catch (error) {
@@ -163,14 +157,11 @@ const resetPassword = async (req, res) => {
   try {
     const decoded = jwt.verify(resetToken, process.env.JWT_SECRET);
     const hashedPassword = await bcrypt.hash(newPassword, 10);
-    console.log("New Password:", newPassword);
-    console.log("Hashed Password:", hashedPassword);
     
 
     await User.updateUserPassword(decoded.email, hashedPassword);
     res.json({ message: "Password updated successfully" });
   } catch (error) {
-    console.log(error);
     res.status(400).json({ message: "Invalid or expired token" });
   }
 };
