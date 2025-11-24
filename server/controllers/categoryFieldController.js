@@ -11,13 +11,46 @@ const categoryFieldController = {
       console.error("Error fetching fields:", error);
       res.status(500).json({ success: false, message: "Server error" });
     }
+  }, 
+
+  getFiltersByCategory: async (req, res) => {
+    try {
+      const { category_id } = req.params;
+      const fields = await CategoryFieldModel.getFieldsByCategory(category_id);
+
+      const filterable = fields.map((f) => ({
+        field_name: f.field_name,
+        label: f.label,
+        type: f.input_type,
+        options: f.options ? JSON.parse(f.options) : null,
+      }));
+
+      const commonFilters = {
+      max_price: { label: "Max Price", min: 0, max: 50000, step: 100 },
+      recently_added: { label: "Recently Added", type: "boolean" },
+      nearby_me: { label: "Nearby Me", type: "location" }
+    };
+
+      res.status(200).json({
+        success: true,
+        data: {
+          category_id,
+          common_filters: commonFilters,
+          filters: filterable,
+        },
+      });
+    } catch (error) {
+      console.error("Error fetching fields:", error); 
+      res.status(500).json({ success: false, message: "Server error" });
+    }
   },
 
   // Add new field
   addField: async (req, res) => {
     try {
       const { category_id } = req.params;
-      const { field_name, label, input_type, options, required, placeholder } = req.body;
+      const { field_name, label, input_type, options, required, placeholder } =
+        req.body;
 
       if (!field_name || !label) {
         return res.status(400).json({
@@ -53,7 +86,10 @@ const categoryFieldController = {
       const { field_id } = req.params;
       const updatedData = req.body;
 
-      const result = await CategoryFieldModel.updateField(field_id, updatedData);
+      const result = await CategoryFieldModel.updateField(
+        field_id,
+        updatedData
+      );
 
       if (!result) {
         return res.status(404).json({

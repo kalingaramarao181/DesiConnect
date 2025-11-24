@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./styles/ProfilePage.css";
 import AdsGrid from "./CategoryView/AdsGrid";
 import { getUserDataFromCookies } from "../utils/cookiesData";
-import { getUserById, updateUserById } from "../api/usersApi"; // ✅ add updateUserById
+import { getUserById } from "../api/usersApi"
 import { getAdsByUser } from "../api/AdApi";
 
 const ProfilePage = () => {
@@ -17,12 +17,13 @@ const ProfilePage = () => {
   
 
   // ✅ Fetch user details safely
+  
   useEffect(() => {
     const fetchUser = async () => {
       if (!userData?.id) return;
       try {
         const res = await getUserById(userData.id);
-        const ads = await getAdsByUser(userData.id, 1, 100);``````````````
+        const ads = await getAdsByUser(userData.id, 1, 100);
         setCurrentAds(ads.data);
         console.log("Fetched User:", ads);
           setUser(res);
@@ -140,5 +141,3 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
-
-

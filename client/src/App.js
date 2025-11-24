@@ -10,6 +10,7 @@ import Secure from "./components/Secure"; // ✅ import Secure component
 import NoAccessPage from './pages/NoAccessPage';
 import ProfilePage from './pages/ProfilePage';
 import ChatPage from './pages/ChatPage';
+import MainDashboard from './pages/Dashboard';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/category/:categoryId" element={<CategoryViewPage />} />
         <Route path="/adds" element={<CarAdsPage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/dashboard" element={<MainDashboard />} />
 
         {/* ✅ Protected Route - Only logged-in users can access */}
         <Route element={<Secure />}>

@@ -1,0 +1,18 @@
+
+
+.dc-table {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  border-collapse: collapse;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.dc-table th, .dc-table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+}
+
+.dc-table th {
+  background: rgba(255,120,0,0.1);
+}

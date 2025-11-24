@@ -15,10 +15,6 @@ const FilterSidebar = ({ onApplyFilters, categoryId=4 }) => {
     fetch(`http://localhost:5000/api/categories/filters/${categoryId}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.data.common_filters);
-        console.log(data.data.category_filters);
-
-        
         setCommonFilters(data.data.common_filters);
         setCategoryFilters(data.data.filters);
       })
@@ -68,8 +64,6 @@ const FilterSidebar = ({ onApplyFilters, categoryId=4 }) => {
 
   // 🔥 Apply Filters
   const handleApply = () => {
-    console.log(selectedFilters);
-    
     onApplyFilters(selectedFilters);
   };
 
@@ -149,7 +143,7 @@ const FilterSidebar = ({ onApplyFilters, categoryId=4 }) => {
           {field.type === "text" && (
             <input
               type="text"
-              className="filter-text"
+              className="filter-select"
               placeholder={field.placeholder}
               onChange={(e) =>
                 updateCategoryFilter(field.field_name, e.target.value)
@@ -161,7 +155,7 @@ const FilterSidebar = ({ onApplyFilters, categoryId=4 }) => {
           {field.type === "number" && (
             <input
               type="number"
-              className="filter-text"
+              className="filter-select"
               onChange={(e) =>
                 updateCategoryFilter(field.field_name, e.target.value)
               }

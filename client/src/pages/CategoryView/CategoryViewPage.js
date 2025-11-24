@@ -74,6 +74,7 @@ const CategoryViewPage = () => {
         <FilterSidebar
           ads={ads}
           onApplyFilters={handleApplyFilters}
+          categoryId={categoryId}
         />
 
         {/* Ads Grid + Pagination */}

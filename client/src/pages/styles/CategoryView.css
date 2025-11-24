@@ -123,7 +123,7 @@
 .filter-sidebar {
   position: sticky;
   top: 0;
-  width: 270px;
+  width: 290px;
   background: #fff;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.08);
   padding: 20px 18px;
@@ -209,6 +209,16 @@
 /* Dropdown */
 .filter-select {
   width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  color: #333;
+  font-size: 14px;
+}
+
+.filter-text {
+  width: 93%;
   padding: 10px;
   border-radius: 8px;
   border: 1px solid #ddd;

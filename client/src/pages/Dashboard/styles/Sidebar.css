@@ -1,0 +1,39 @@
+.dc-sidebar {
+  width: 250px;
+  height: 100vh;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  position: fixed;
+  animation: slideIn 0.6s ease forwards;
+}
+
+.dc-sidebar-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+  color: #ff6f00;
+  font-weight: 700;
+}
+
+.dc-menu-item {
+  padding: 12px 16px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 500;
+}
+
+.dc-menu-item:hover {
+  background: rgba(255,120,0,0.1);
+}
+
+.dc-menu-item.active {
+  background: #ff6f00;
+  color: white;
+}
+
+@keyframes slideIn {
+  from { transform: translateX(-40px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

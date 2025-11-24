@@ -1,0 +1,27 @@
+.dc-header {
+  width: calc(90% - 250px);
+  height: 70px;
+  background: white;
+  position: fixed;
+  left: 300px;
+  top: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 25px;
+  margin-top: 100px;
+  z-index: 10;
+}
+
+.dc-admin-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ff6f00;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
