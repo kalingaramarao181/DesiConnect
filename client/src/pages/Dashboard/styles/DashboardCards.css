@@ -7,12 +7,12 @@
 
 .dc-dashboard-card {
   width: 200px;
-  background: white;
+  background: rgb(180, 177, 177);
   border-radius: 16px;
-  padding: 25px;
+  padding: 26px;
   text-align: center;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: 0.3s;
+  transition: 0.4s;
 }
 
 .dc-dashboard-card:hover {
