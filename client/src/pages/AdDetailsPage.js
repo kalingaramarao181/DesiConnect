@@ -127,7 +127,7 @@ const AdDetailsPage = () => {
         <p className="ad-category">🏠 {ad.category_name}</p>
         <p className="ad-posted-by">👤 Posted by {ad.user_name}</p>
 
-        <div className="ad-price">₹{ad.price} / month</div>
+        <div className="ad-price">${ad.price} / month</div>
 
         <p className="ad-description">{ad.description}</p>
 

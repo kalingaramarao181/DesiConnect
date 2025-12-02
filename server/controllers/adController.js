@@ -1,37 +1,37 @@
 const AdModel = require("../models/adModel");
 const axios = require("axios");
+const { sendNotification } = require("../services/notificationService");
 
 async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
-
 
 const adController = {
   // ✅ Create Ad
   createAd: async (req, res) => {
     try {
       const adData = req.body;
-      
+
       if (typeof adData.json_data === "string") {
         try {
           adData.json_data = JSON.parse(adData.json_data);
         } catch (err) {
-          console.warn("Invalid JSON in json_data:", err);  
+          console.warn("Invalid JSON in json_data:", err);
         }
       }
 
-    const lat = adData.latitude ? parseFloat(adData.latitude) : null;
-    const lng = adData.longitude ? parseFloat(adData.longitude) : null;
-    const address = adData.location || null;
+      const lat = adData.latitude ? parseFloat(adData.latitude) : null;
+      const lng = adData.longitude ? parseFloat(adData.longitude) : null;
+      const address = adData.location || null;
 
-    adData.location = JSON.stringify({
-      lat,
-      lng,
-      address,
-    });
+      adData.location = JSON.stringify({
+        lat,
+        lng,
+        address,
+      });
 
-    delete adData.latitude;
-    delete adData.longitude;
+      delete adData.latitude;
+      delete adData.longitude;
 
       const folder = (req.body.folder || "icons").replace(/["']/g, "").trim();
 
@@ -42,6 +42,14 @@ const adController = {
       );
 
       const ad_id = await AdModel.createAd(adData, imageUrls);
+      await sendNotification({
+        userId: adData.user_id,
+        title: "Ad Created Successfully",
+        message: "Your listing is now created. We will show it to buyers.",
+        redirectUrl: `/ad-details/${ad_id}`,
+        entityType: "ad",
+        entityId: ad_id,
+      });
 
       res.status(201).json({
         success: true,
@@ -78,6 +86,15 @@ const adController = {
           .status(404)
           .json({ success: false, message: "Ad not found" });
 
+      await sendNotification({
+        userId: adData.user_id,
+        title: "Ad Updated",
+        message: "Your listing has been updated.",
+        redirectUrl: `/ad-details/${id}`,
+        entityType: "ad",
+        entityId: id,
+      });
+
       res.status(200).json({
         success: true,
         message: "Ad updated successfully",
@@ -100,6 +117,15 @@ const adController = {
           .status(404)
           .json({ success: false, message: "Ad not found" });
 
+      await sendNotification({
+        userId: req.body.user_id, // or get from DB
+        title: "Ad Deleted",
+        message: "Your listing has been removed.",
+        redirectUrl: `/my-ads`,
+        entityType: "ad",
+        entityId: req.params.id,
+      });
+
       res
         .status(200)
         .json({ success: true, message: "Ad deleted successfully" });
@@ -110,8 +136,7 @@ const adController = {
   },
 
   // ✅ Get All Ads with Filters
-   getAllAds: async (req, res) => {
-    
+  getAllAds: async (req, res) => {
     try {
       const ads = await AdModel.getAllAds(req.query);
       res.status(200).json({ success: true, count: ads.length, data: ads });
@@ -141,8 +166,9 @@ const adController = {
   getAdDetailsById: async (req, res) => {
     try {
       const { adId } = req.params;
-      
-      const ad = await AdModel.getAdDetailsById(adId);    
+
+      const ad = await AdModel.getAdDetailsById(adId);
+
       if (!ad) {
         return res.status(404).json({
           success: false,
@@ -176,7 +202,7 @@ const adController = {
     }
   },
 
- getUniqueLocations: async (req, res) => {
+  getUniqueLocations: async (req, res) => {
     try {
       const db = require("../config/db");
       const [rows] = await db.query(
@@ -192,7 +218,9 @@ const adController = {
           const loc = JSON.parse(row.location);
           if (!loc.lat || !loc.lng) continue;
 
-          console.log(`🌍 [${index + 1}/${rows.length}] Checking ${loc.lat}, ${loc.lng}`);
+          console.log(
+            `🌍 [${index + 1}/${rows.length}] Checking ${loc.lat}, ${loc.lng}`
+          );
 
           const url = `https://nominatim.openstreetmap.org/reverse?lat=${loc.lat}&lon=${loc.lng}&format=json`;
           const resGeo = await axios.get(url, {
@@ -234,7 +262,6 @@ const adController = {
       res.status(500).json({ success: false, message: "Server error", error });
     }
   },
-
 };
 
 module.exports = adController;

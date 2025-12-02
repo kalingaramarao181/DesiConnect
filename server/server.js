@@ -5,6 +5,7 @@ const path = require("path");
 const userRoutes = require('./routes/userRoutes')
 const authRoutes = require('./routes/authRoutes');
 const messageRoutes = require('./routes/messageRoutes');
+const notificationRoutes = require('./routes/notificationRoutes');
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use("/api", authRoutes);
 app.use("/api/adds", adRoutes);
 app.use("/api/categories", categoryRoutes);
 app.use("/api/messages", messageRoutes);
+app.use("/api/notifications", notificationRoutes);
 
 
 // Root

@@ -1,4 +1,5 @@
 const Message = require("../models/Message");
+const { sendNotification } = require("../services/notificationService");
 
 // GET chat messages
 exports.getMessages = async (req, res) => {
@@ -23,6 +24,15 @@ exports.sendMessage = async (req, res) => {
     }
 
     const newMsg = await Message.sendMessage(senderId, receiverId, adId, messageText);
+     await sendNotification({
+      userId: receiverId,
+      title: "New Message Received",
+      message: `Someone sent you a message: "${messageText.substring(0, 40)}..."`,
+      redirectUrl: `/ads/${adId}`,
+      entityType: "chat",
+      entityId: adId,
+    });
+
     res.status(201).json({ success: true, id: newMsg.id });
   } catch (err) {
     console.error("Error sending message:", err);

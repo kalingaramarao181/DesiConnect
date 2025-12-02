@@ -11,13 +11,11 @@ const ProfilePage = () => {
   const [editMode, setEditMode] = useState(false);
   const [showAds, setShowAds] = useState(false);
   const [loading, setLoading] = useState(true);
-  const [currentAds, setCurrentAds] = useState([])
+  const [currentAds, setCurrentAds] = useState([]);
 
   const userData = getUserDataFromCookies();
   
 
-  // ✅ Fetch user details safely
-  
   useEffect(() => {
     const fetchUser = async () => {
       if (!userData?.id) return;
@@ -41,10 +39,8 @@ const ProfilePage = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  // ✅ Update locally & backend
   const handleSave = async () => {
     try {
-      // Optional: update in DB
       // await updateUserById(user.id, formData);
       setUser(formData);
       setEditMode(false);
@@ -89,18 +85,16 @@ const ProfilePage = () => {
               className="profile-input-box"
             />
           </label>
-
           <label>
-            Email:
+            Password:
             <input
-              type="email"
-              name="email"
-              value={formData.email || ""}
+              type="text"
+              name="password"
+              value={formData.password || ""}
+              onChange={handleChange}
               className="profile-input-box"
-              disabled
             />
           </label>
-
           <label>
             Address:
             <textarea

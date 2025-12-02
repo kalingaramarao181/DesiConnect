@@ -33,7 +33,7 @@ function App() {
         <Route path="*" element={<NoAccessPage />} />
 
       </Routes>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
