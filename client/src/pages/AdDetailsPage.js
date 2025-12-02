@@ -25,7 +25,7 @@ const AdDetailsPage = () => {
         if (res?.data) {
           setAd(res.data);
         } else {
-          setError("Ad not found");
+          setError("Error ");
         }
       } catch (err) {
         console.error("Error fetching ad details:", err);
