@@ -19,7 +19,7 @@ export default function MainDashboard() {
         {page === "dashboard" && <Dashboard />}
         {page === "users" && <Users />}
         {page === "ads" && <Ads />}
-        {page === "reports" && <Reports />}
+        {/* {page === "reports" && <Reports />} */}
       </div>
     </>
   );
